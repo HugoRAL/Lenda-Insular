@@ -1572,9 +1572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c5d66551fb9394bbb3a70c15634a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 330158349687617441, guid: be2023a4021a6704da970d2819445d58, type: 3}
+  bulletPrefab: {fileID: 1518293759372859586, guid: c9377bbaa5dc4e9489b2c684ea05351e, type: 3}
   bulletPoint: {fileID: 1537814798}
-  jogador: {fileID: 885746217}
+  jogador: {fileID: 1537814798}
 --- !u!4 &1916286764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3861894819865720379, guid: c4ce77fae258db1419fe426be4a51bbb, type: 3}
