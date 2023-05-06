@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
    // private Rigidbody rb;
     public LayerMask layerMask;
     public bool grounded;
+    public bool shoot;
+     
     // Start is called before the first frame update
     void Start()
     {
        // this.rb = GetComponent<Rigidbody>();
+       shoot=false;
     }
 
 
@@ -23,7 +26,6 @@ public class PlayerController : MonoBehaviour
         Grounded();
         //Jump();
         Move();
-        
     }
     /*
     private void Jump()
@@ -53,4 +55,5 @@ public class PlayerController : MonoBehaviour
         this.anim.SetFloat("Vertical", verticalAxis);
         this.anim.SetFloat("Horizontal", horizontalAxis);
     }
+    
 }
