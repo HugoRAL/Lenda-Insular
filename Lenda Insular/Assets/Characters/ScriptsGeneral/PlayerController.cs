@@ -5,42 +5,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     public Animator anim;
-   // private Rigidbody rb;
     public LayerMask layerMask;
-    public bool grounded;
     public bool shoot;
-     
+    public Rigidbody rb; // Referência ao Rigidbody do objeto jogador
+
     // Start is called before the first frame update
     void Start()
     {
-       // this.rb = GetComponent<Rigidbody>();
-       shoot=false;
+        shoot = false;
+        rb = GetComponent<Rigidbody>(); // Obtém a referência ao Rigidbody do objeto jogador
+        rb.freezeRotation = true; // Desabilita a rotação
     }
 
 
-    // Update is called once per frame
     void Update()
     {
-        Grounded();
-        //Jump();
         Move();
     }
-    /*
-    private void Jump()
-    {
-        if(Input.GetKeyDown(KeyCode.Space) && this.grounded)
-        {
-            this.rb.AddForce(Vector3.up * 4, ForceMode.Impulse);
-        }
 
-    }*/
-    private void Grounded()
-    {
-        this.grounded = (Physics.CheckSphere(this.transform.position + Vector3.down, 0.2f, layerMask)) ? true : false;
-       // this.anim.SetBool("Jump", this.grounded);
-    }
 
     private void Move()
     {
@@ -55,5 +38,5 @@ public class PlayerController : MonoBehaviour
         this.anim.SetFloat("Vertical", verticalAxis);
         this.anim.SetFloat("Horizontal", horizontalAxis);
     }
-    
+
 }

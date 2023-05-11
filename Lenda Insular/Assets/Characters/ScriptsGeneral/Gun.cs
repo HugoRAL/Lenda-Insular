@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static PlayerController;
 
@@ -10,11 +11,12 @@ public class Gun : MonoBehaviour
     private GameObject bulletPrefab;
     [SerializeField]
     private GameObject bulletPoint;
-    private float bulletSpeed = 100;
+    private float bulletSpeed = 5000;
     public GameObject jogador;
     // Start is called before the first frame update
     void Start()
     {
+
         _input = transform.root.GetComponent<PlayerController>();
     }
 
@@ -23,23 +25,29 @@ public class Gun : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Shoot(jogador.transform.rotation.y);
+
+            Shoot(transform.rotation);
             _input.shoot = false;
         }
     }
 
-    public void Shoot(float x)
+    public void Shoot(Quaternion _rotacao)
     {
-        Debug.Log("shoot!");
-        Debug.Log(jogador.transform.rotation);
-        Debug.Log(transform.rotation);
-        GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position + transform.forward * 2, Quaternion.Euler(0, jogador.transform.rotation.y, 0));
-        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();//rigid body clone
+        GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, _rotacao);// Instancia o objeto bala na posição do ponto de criação da bala e com a rotação passada como parâmetro
+
+
+        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         bulletRb.useGravity = false;
-        bullet.GetComponent<Rigidbody>().AddForce(transform.right * -1 * bulletSpeed);
-        bullet.transform.localScale = new Vector3(50, 50, 50);
-        Debug.Log(bullet.transform.rotation);
-        Destroy(bullet, 2);
+
+        bulletRb.AddForce(transform.right * -1 * bulletSpeed);// Adiciona força ao Rigidbody do clone da bala na direção do eixo X negativo (para trás)
+        bullet.transform.Rotate(0f, -90f, 0f); // rotaciona a bala para a frente
+
+
+        bullet.transform.localScale = new Vector3(1,1,1);
+        // bullet.transform.LookAt(bulletPoint.transform.position); // ajusta a rotação do clone da bala
+
+
+        Destroy(bullet, 2);// Destroi o clone da bala após 2 segundos
     }
-    
+
 }
