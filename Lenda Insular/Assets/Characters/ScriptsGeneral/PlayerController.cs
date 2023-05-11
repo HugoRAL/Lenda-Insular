@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public Animator anim;
     public LayerMask layerMask;
+
     public bool shoot;
-    public Rigidbody rb; // Referência ao Rigidbody do objeto jogador
+    private Rigidbody rb; // Referência ao Rigidbody do objeto jogador
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,27 +18,29 @@ public class PlayerController : MonoBehaviour
         shoot = false;
         rb = GetComponent<Rigidbody>(); // Obtém a referência ao Rigidbody do objeto jogador
         rb.freezeRotation = true; // Desabilita a rotação
-    }
 
+
+    }
 
     void Update()
     {
         Move();
-    }
 
+    }
 
     private void Move()
     {
         float verticalAxis = Input.GetAxis("Vertical");
         float horizontalAxis = Input.GetAxis("Horizontal");
 
-        Vector3 movement = this.transform.forward * verticalAxis + this.transform.right * horizontalAxis;
+        Vector3 movement = transform.forward * verticalAxis + transform.right * horizontalAxis;
         movement.Normalize();
 
-        this.transform.position += movement * 0.04f;
+        transform.position += movement * 0.04f;
 
-        this.anim.SetFloat("Vertical", verticalAxis);
-        this.anim.SetFloat("Horizontal", horizontalAxis);
+        anim.SetFloat("Vertical", verticalAxis);
+        anim.SetFloat("Horizontal", horizontalAxis);
     }
 
+   
 }

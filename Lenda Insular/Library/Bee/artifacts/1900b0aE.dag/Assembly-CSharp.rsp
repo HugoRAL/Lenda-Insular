@@ -366,6 +366,7 @@
 "Assets/Characters/ScriptsGeneral/CameraController.cs"
 "Assets/Characters/ScriptsGeneral/Gun.cs"
 "Assets/Characters/ScriptsGeneral/PlayerController.cs"
+"Assets/Inimigos/Scripts/Hit.cs"
 -langversion:9.0
 
 /deterministic
