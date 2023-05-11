@@ -8,20 +8,20 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public LayerMask layerMask;
     public bool shoot;
-    public Rigidbody rb; // Referência ao Rigidbody do objeto jogador
+    public Rigidbody rb; // Referï¿½ncia ao Rigidbody do objeto jogador
 
     // Start is called before the first frame update
     void Start()
     {
         shoot = false;
-        rb = GetComponent<Rigidbody>(); // Obtém a referência ao Rigidbody do objeto jogador
-        rb.freezeRotation = true; // Desabilita a rotação
+        rb = GetComponent<Rigidbody>(); // Obtï¿½m a referï¿½ncia ao Rigidbody do objeto jogador
+        rb.freezeRotation = true; // Desabilita a rotaï¿½ï¿½o
     }
 
 
     void Update()
     {
-        Move();
+        Move();   
     }
 
 
