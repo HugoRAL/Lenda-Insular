@@ -8,7 +8,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask layerMask;
 
     public bool shoot;
-    private Rigidbody rb; // Referência ao Rigidbody do objeto jogador
+    private Rigidbody rb; // Referï¿½ncia ao Rigidbody do objeto jogador
+
+
+
 
 
 
@@ -16,8 +19,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         shoot = false;
-        rb = GetComponent<Rigidbody>(); // Obtém a referência ao Rigidbody do objeto jogador
-        rb.freezeRotation = true; // Desabilita a rotação
+        rb = GetComponent<Rigidbody>(); // Obtï¿½m a referï¿½ncia ao Rigidbody do objeto jogador
+        rb.freezeRotation = true; // Desabilita a rotaï¿½ï¿½o
+
+
 
 
     }
@@ -25,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+
 
     }
 
