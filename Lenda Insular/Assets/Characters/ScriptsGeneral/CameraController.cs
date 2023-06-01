@@ -22,10 +22,7 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-
-
-
-        SetRotacao();
+                SetRotacao();
         Apontar();
     }
 

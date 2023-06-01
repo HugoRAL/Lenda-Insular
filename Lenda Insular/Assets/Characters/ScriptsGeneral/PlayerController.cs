@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = transform.forward * verticalAxis + transform.right * horizontalAxis;
         movement.Normalize();
 
-        transform.position += movement * 0.04f;
+        transform.position += movement * 0.07f;
 
         anim.SetFloat("Vertical", verticalAxis);
         anim.SetFloat("Horizontal", horizontalAxis);

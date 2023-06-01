@@ -56,10 +56,14 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Characters\objetos\scripts\chave.cs" />
     <Compile Include="Assets\Characters\ScriptsGeneral\PlayerController.cs" />
     <Compile Include="Assets\Characters\ScriptsGeneral\CameraController.cs" />
-    <Compile Include="Assets\Characters\ScriptsGeneral\Gun.cs" />
     <Compile Include="Assets\Inimigos\Scripts\Hit.cs" />
+    <Compile Include="Assets\UI\Scripts\BntExit.cs" />
+    <Compile Include="Assets\UI\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Characters\ScriptsGeneral\Gun.cs" />
+    <Compile Include="Assets\Characters\ScriptsGeneral\ItemPickup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -76,6 +80,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Imports\Key\readME keys.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
