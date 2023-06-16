@@ -5,14 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ScriptMenus : MonoBehaviour
 {
-    public Cron cron;
-    public void Play()
-    {
 
-        SceneManager.LoadScene("MainLevel");
+    public void Play() => SceneManager.LoadScene("MainLevel");
 
-    }
-
+    
     public void BntQuit()=> Application.Quit();
 
 }

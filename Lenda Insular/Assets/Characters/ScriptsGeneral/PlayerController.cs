@@ -10,26 +10,34 @@ public class PlayerController : MonoBehaviour
     public bool shoot;
     private Rigidbody rb; // Refer�ncia ao Rigidbody do objeto jogador
 
+    public InGameUI Ui;
+    public CameraController Camera;
 
-
-
-
+    private bool pause;
 
     // Start is called before the first frame update
     void Start()
     {
         shoot = false;
         rb = GetComponent<Rigidbody>(); // Obt�m a refer�ncia ao Rigidbody do objeto jogador
-        rb.freezeRotation = true; // Desabilita a rota��o
-
-
-
+        rb.freezeRotation = true; // Desabilita a rotacao
 
     }
 
+
     void Update()
     {
-        Move();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pause = !pause;
+            PauseMenu();
+        }
+        if (Time.timeScale==1)
+        {
+            Move();
+            Apontar();
+            Camera.SetRotacao();
+        }
 
 
     }
@@ -48,5 +56,24 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Horizontal", horizontalAxis);
     }
 
-   
+    private void Apontar()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Ui.CrossHair(true);
+            Camera.FPS();
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+
+            Ui.CrossHair(false);
+            Camera.TPS();
+        }
+    }
+
+    private void PauseMenu()
+    {
+        Ui.PauseMenu(pause);
+        Time.timeScale = (pause ? 0 : 1);
+    }
 }
