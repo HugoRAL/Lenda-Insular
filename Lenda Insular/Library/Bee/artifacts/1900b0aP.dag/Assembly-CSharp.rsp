@@ -321,6 +321,8 @@
 "Assets/Characters/ScriptsGeneral/ItemPickup.cs"
 "Assets/Characters/ScriptsGeneral/PlayerController.cs"
 "Assets/Inimigos/Scripts/Hit.cs"
+"Assets/Scenes/MainMenu/ScriptMenus.cs"
+"Assets/ScriptsGeneral/Cron.cs"
 "Assets/UI/Scripts/BntExit.cs"
 "Assets/UI/Scripts/PauseMenu.cs"
 -langversion:9.0
