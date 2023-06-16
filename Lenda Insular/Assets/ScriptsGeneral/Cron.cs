@@ -1,34 +1,78 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Cron : MonoBehaviour
 {
-
-    public Text textoCronometro; // Refer�ncia ao componente de texto para exibir o cron�metro
-    private float tempo; // Tempo passado em segundos
-
-    private bool Conta = false;
-
-    public void CronStrat()=> Conta = true;
-    public void CronReset() => tempo = 0;
-    public void CronFinish() => Conta = false;
+    private float currentTime = 0f;
+    private bool isTimerRunning = true; // Indica se o timer está em execução
+    private bool endGame = false; // Indica se o tempo acabou
+    public TextMeshProUGUI timerTextMeshPro; // Variável para armazenar o TextMeshPro
 
     private void Update()
     {
-        if (Conta)
+        if (isTimerRunning)
         {
-            // Incrementa o tempo passado desde o in�cio do jogo
-            tempo += Time.deltaTime;
-
-            // Formata o tempo em minutos e segundos
-            int minutos = Mathf.FloorToInt(tempo / 60);
-            int segundos = Mathf.FloorToInt(tempo % 60);
-
-            // Atualiza o texto do cron�metro
-            textoCronometro.text = string.Format("{0:00}:{1:00}", minutos, segundos);
+            currentTime += Time.deltaTime;
         }
 
+        // Atualiza o texto do timer
+        timerTextMeshPro.text = FormatTime(currentTime);
+
+        // Verifica se a tecla "Esc" foi pressionada para pausar/resumir o tempo
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (endGame)
+            {
+                // Reiniciar o jogo quando "Esc" é pressionado após o fim do jogo
+                RestartGame();
+            }
+            else
+            {
+                // Pausar ou retomar o tempo quando "Esc" é pressionado durante o jogo
+                isTimerRunning = !isTimerRunning;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            endGame = true;
+        }
+
+        // Verifica se o tempo acabou
+        if (endGame)
+        {
+            // Realize as ações finais ou termine o jogo aqui
+            // Exemplo: chame a função EndGame()
+            EndGame();
+        }
+    }
+
+    private void EndGame()
+    {
+        // Lógica para o fim do jogo
+        Debug.Log("Tempo acabou! Fim do jogo!");
+
+        // Resetar o tempo
+        currentTime = 0f;
+        isTimerRunning = true;
+        endGame = false;
+    }
+
+    private void RestartGame()
+    {
+        // Lógica para reiniciar o jogo
+        Debug.Log("Jogo reiniciado!");
+
+        // Resetar o tempo
+        currentTime = 0f;
+        isTimerRunning = true;
+        endGame = false;
+    }
+
+    private string FormatTime(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60f);
+        int seconds = Mathf.FloorToInt(time % 60f);
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
