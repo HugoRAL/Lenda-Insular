@@ -1,5 +1,9 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Cron : MonoBehaviour
 {
@@ -18,24 +22,11 @@ public class Cron : MonoBehaviour
         // Atualiza o texto do timer
         timerTextMeshPro.text = FormatTime(currentTime);
 
-        // Verifica se a tecla "Esc" foi pressionada para pausar/resumir o tempo
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (endGame)
-            {
-                // Reiniciar o jogo quando "Esc" é pressionado após o fim do jogo
-                RestartGame();
-            }
-            else
-            {
-                // Pausar ou retomar o tempo quando "Esc" é pressionado durante o jogo
-                isTimerRunning = !isTimerRunning;
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            endGame = true;
+            SceneManager.LoadScene("MainMenu");
+
         }
 
         // Verifica se o tempo acabou
@@ -75,4 +66,15 @@ public class Cron : MonoBehaviour
         int seconds = Mathf.FloorToInt(time % 60f);
         return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    public void ReturnToMainMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        { 
+                // Pausar ou retomar o tempo quando "Esc" é pressionado durante o jogo
+                isTimerRunning = !isTimerRunning;
+        }
+    }
 }
+
+

@@ -1,61 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using System.IO;
 
-public class CameraController : MonoBehaviour
+public class SliderSensibilidade : MonoBehaviour
 {
-    public GameObject player; // Objeto jogador
-    public GameObject crosshair; // Objeto crosshair
+    public Slider slider;
+    public string sensibilidadeFilePath = "sensibilidade.txt";
 
-    private float currentRotationX = 0f; // Rotação vertical atual da câmera
+    public static event System.Action<float> OnSensibilidadeChanged;
 
+    public static SliderSensibilidade Instance { get; private set; }
 
+    private float sensibilidade;
 
-    void Start()
+    private void Awake()
     {
-
-        crosshair.SetActive(false); // Desativa o objeto crosshair no início do jogo
-        SetPosicao(player.transform.position - player.transform.forward * 3 + Vector3.up * 2.5f);
+        Instance = this;
     }
 
-    void LateUpdate()
+    private void Start()
     {
-                SetRotacao();
-        Apontar();
-    }
-
-    private void Apontar()
-    {
-        if (Input.GetMouseButtonDown(1))
+        // Verifica se o arquivo de sensibilidade existe
+        if (File.Exists(sensibilidadeFilePath))
         {
-            crosshair.SetActive(true);
-            Vector3 newPosition = (player.transform.position - player.transform.forward * 1.5f + Vector3.up * 2.5f+ player.transform.right * 1.5f);
-
-            SetPosicao(newPosition);
+            // Carrega o valor do arquivo
+            string valorSensibilidade = File.ReadAllText(sensibilidadeFilePath);
+            float.TryParse(valorSensibilidade, out sensibilidade);
         }
-        else if (Input.GetMouseButtonUp(1))
+        else
         {
-
-            crosshair.SetActive(false);
-            SetPosicao(player.transform.position - player.transform.forward * 3 + Vector3.up * 2.5f);
+            // Define um valor padrÃ£o caso o arquivo nÃ£o exista
+            sensibilidade = 0.5f;
         }
+
+        // Define o valor inicial do slider
+        slider.value = sensibilidade;
+        // Registra o mÃ©todo para ser chamado quando o valor do slider mudar
+        slider.onValueChanged.AddListener(AtualizarSensibilidade);
     }
 
-    private void SetRotacao()
+    private void AtualizarSensibilidade(float novoValor)
     {
-        // Rotação do objeto jogador com o movimento do mouse
-        float mouseX = Input.GetAxis("Mouse X");
-        player.transform.Rotate(Vector3.up, mouseX);
+        sensibilidade = novoValor;
+        // Salva o valor da sensibilidade no arquivo de texto
+        File.WriteAllText(sensibilidadeFilePath, sensibilidade.ToString());
 
-        // Rotação vertical da câmera com o movimento do mouse
-        float mouseY = Input.GetAxis("Mouse Y");
-        currentRotationX += mouseY;
-        currentRotationX = Mathf.Clamp(currentRotationX, -15f, 15f);
-        transform.localEulerAngles = new Vector3(-currentRotationX, transform.localEulerAngles.y, 0f);
+        // Dispara o evento informando a nova sensibilidade
+        OnSensibilidadeChanged?.Invoke(sensibilidade);
     }
-
-    private void SetPosicao(Vector3 cameraPosition)=> transform.position = cameraPosition;
-
 }
