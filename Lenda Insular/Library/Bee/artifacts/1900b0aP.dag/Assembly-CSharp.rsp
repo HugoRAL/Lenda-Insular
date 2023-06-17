@@ -317,14 +317,15 @@
 -r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 "Assets/Characters/objetos/scripts/chave.cs"
 "Assets/Characters/ScriptsGeneral/CameraController.cs"
+"Assets/Characters/ScriptsGeneral/Cursor.cs"
 "Assets/Characters/ScriptsGeneral/Gun.cs"
 "Assets/Characters/ScriptsGeneral/ItemPickup.cs"
 "Assets/Characters/ScriptsGeneral/PlayerController.cs"
 "Assets/Inimigos/Scripts/Hit.cs"
-"Assets/ScriptsGeneral/Cron.cs"
+"Assets/ScriptsGeneral/Crons.cs"
 "Assets/ScriptsGeneral/SliderSensibilidade.cs"
 "Assets/UI/Scripts/InGameUI.cs"
-"Assets/UI/Scripts/PauseMenu.cs"
+"Assets/UI/Scripts/RestartGame.cs"
 "Assets/UI/Scripts/ScriptMenus.cs"
 -langversion:9.0
 

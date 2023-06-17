@@ -2,12 +2,16 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraController
-    - Cron
+    - Crons
+    - Cursor
     - Gun
     - Hit
     - InGameUI
     - ItemPickup
     - PlayerController
+    - RestartGame
+    - ScriptMenus
+    - SliderSensibilidade
     - chave
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
@@ -32,8 +36,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -94,12 +100,21 @@ ScriptsOnlyBuild:
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: ScriptMenus
+    methodName: BntQuit
+  - assembly: Assembly-CSharp
+    fullTypeName: ScriptMenus
+    methodName: Play
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: RestartGame
+    methodName: Restart
   sceneClasses:
     Assets/Scenes/Main/MainLevel.unity:
     - Class: 1
@@ -139,37 +154,47 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1956}
+      Script: {instanceID: 1652}
     - Class: 114
-      Script: {instanceID: 2720}
+      Script: {instanceID: 2416}
     - Class: 114
-      Script: {instanceID: 3014}
+      Script: {instanceID: 2710}
     - Class: 114
-      Script: {instanceID: 3146}
+      Script: {instanceID: 2842}
     - Class: 114
-      Script: {instanceID: 3320}
+      Script: {instanceID: 3016}
     - Class: 114
-      Script: {instanceID: 3378}
+      Script: {instanceID: 3024}
     - Class: 114
-      Script: {instanceID: 4260}
+      Script: {instanceID: 3076}
     - Class: 114
-      Script: {instanceID: 4748}
+      Script: {instanceID: 3432}
     - Class: 114
-      Script: {instanceID: 6054}
+      Script: {instanceID: 3958}
     - Class: 114
-      Script: {instanceID: 6100}
+      Script: {instanceID: 4446}
     - Class: 114
-      Script: {instanceID: 6758}
+      Script: {instanceID: 5668}
     - Class: 114
-      Script: {instanceID: 6944}
+      Script: {instanceID: 5752}
     - Class: 114
-      Script: {instanceID: 7350}
+      Script: {instanceID: 5798}
     - Class: 114
-      Script: {instanceID: 8436}
+      Script: {instanceID: 6456}
     - Class: 114
-      Script: {instanceID: 9304}
+      Script: {instanceID: 6642}
     - Class: 114
-      Script: {instanceID: 9474}
+      Script: {instanceID: 6832}
+    - Class: 114
+      Script: {instanceID: 7050}
+    - Class: 114
+      Script: {instanceID: 9000}
+    - Class: 114
+      Script: {instanceID: 9170}
+    - Class: 114
+      Script: {instanceID: 26784}
+    - Class: 114
+      Script: {instanceID: 57344}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -224,37 +249,39 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1956}
+      Script: {instanceID: 1652}
     - Class: 114
-      Script: {instanceID: 2100}
+      Script: {instanceID: 1796}
     - Class: 114
-      Script: {instanceID: 2644}
+      Script: {instanceID: 2340}
     - Class: 114
-      Script: {instanceID: 3146}
+      Script: {instanceID: 2842}
     - Class: 114
-      Script: {instanceID: 3378}
+      Script: {instanceID: 3024}
     - Class: 114
-      Script: {instanceID: 3734}
+      Script: {instanceID: 3076}
     - Class: 114
-      Script: {instanceID: 4896}
+      Script: {instanceID: 3432}
     - Class: 114
-      Script: {instanceID: 4914}
+      Script: {instanceID: 4594}
     - Class: 114
-      Script: {instanceID: 5222}
+      Script: {instanceID: 4612}
     - Class: 114
-      Script: {instanceID: 5842}
+      Script: {instanceID: 4862}
     - Class: 114
-      Script: {instanceID: 5970}
+      Script: {instanceID: 4920}
     - Class: 114
-      Script: {instanceID: 6054}
+      Script: {instanceID: 5540}
     - Class: 114
-      Script: {instanceID: 6758}
+      Script: {instanceID: 5668}
     - Class: 114
-      Script: {instanceID: 6944}
+      Script: {instanceID: 5752}
     - Class: 114
-      Script: {instanceID: 7350}
+      Script: {instanceID: 6456}
     - Class: 114
-      Script: {instanceID: 38360}
+      Script: {instanceID: 6642}
+    - Class: 114
+      Script: {instanceID: 7050}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -452,6 +479,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.Advertisements.dll
     namespaceName: UnityEngine.Advertisements
     className: Placeholder
+  - hash:
+      serializedVersion: 2
+      Hash: 2a19c8944b861d2188e5643130681199
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SliderSensibilidade
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -718,7 +751,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: a46648e279e5ac060600c98be38a3085
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScriptMenus
@@ -916,6 +949,12 @@ ScriptsOnlyBuild:
     className: UnityUtil
   - hash:
       serializedVersion: 2
+      Hash: 03661955cb4daf67e0d9be439b5cb76c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Crons
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1006,12 +1045,6 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionExitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PauseMenu
-  - hash:
-      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -1076,12 +1109,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 03661955cb4daf67e0d9be439b5cb76c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Cron
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1204,10 +1231,16 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 29aa2c8ffe7fa8fd441dcbb85bf0e567
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: SliderSensibilidade
+    className: Cursor
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RestartGame
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu/MainMenu.unity
