@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public CameraController Camera;
 
     private bool pause;
+    public AudioSource footstepsSound;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,15 @@ public class PlayerController : MonoBehaviour
             Move();
             Apontar();
             Camera.SetRotacao();
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+            {
+                footstepsSound.enabled = true;
+            }
+            else
+            {
+                footstepsSound.enabled = false;
+            }
+
         }
 
 
@@ -44,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+
         float verticalAxis = Input.GetAxis("Vertical");
         float horizontalAxis = Input.GetAxis("Horizontal");
 

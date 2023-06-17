@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using System.Linq;
+using System;
 
 public class Crons : MonoBehaviour
 {
@@ -8,14 +10,27 @@ public class Crons : MonoBehaviour
     private bool isTimerRunning = true;
     private bool endGame = false;
     public TextMeshProUGUI timerTextMeshPro;
-    public List<float>  times = new List<float>();
+    public List<float> times = new List<float>();
+    public bool top5;
 
     private void Start()
     {
         times = GetTime();
 
-
+        if (top5)
+        {
+            string highValuesText = FindAndFormatHighValues(times);
+            timerTextMeshPro.text = highValuesText;
+        }
     }
+
+    private string FindAndFormatHighValues(List<float> numbers)
+    {
+        List<float> highValues = numbers.OrderByDescending(x => x).Take(5).ToList();
+        string formattedValues = string.Join("\n", highValues);
+        return formattedValues;
+    }
+
     public void addTime()=> times.Add(currentTime);
     private void Update()
     {
@@ -29,8 +44,10 @@ public class Crons : MonoBehaviour
             currentTime += Time.deltaTime;
         }
 
-        if (timerTextMeshPro != null) timerTextMeshPro.text = FormatTime(currentTime);
-       
+        if (timerTextMeshPro != null && !top5) timerTextMeshPro.text = FormatTime(currentTime);
+        
+
+
     }
     public void SaveTime()
     {
@@ -87,4 +104,6 @@ public class Crons : MonoBehaviour
         int seconds = Mathf.FloorToInt(time % 60f);
         return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+
 }

@@ -1,14 +1,27 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Barco
     - CameraController
-    - Cron
+    - Crons
+    - Crus
+    - EnemyMovement
+    - Finish
     - Gun
     - Hit
     - InGameUI
     - ItemPickup
     - PlayerController
+    - ScriptMenus
+    - ScriptRestart
+    - SliderSensibilidade
+    - alvo
     - chave
+    - scriptAgua
+    NavMeshComponents.dll:
+    - UnityEngine.AI.NavMeshSurface
+    NavMeshComponentsEditor.dll:
+    - UnityEditor.AI.NavMeshAssetManager
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
@@ -32,8 +45,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -94,12 +109,21 @@ ScriptsOnlyBuild:
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: ScriptMenus
+    methodName: BntQuit
+  - assembly: Assembly-CSharp
+    fullTypeName: ScriptMenus
+    methodName: Play
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: ScriptRestart
+    methodName: Restart
   sceneClasses:
     Assets/Scenes/Main/MainLevel.unity:
     - Class: 1
@@ -128,7 +152,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -139,37 +169,59 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1956}
+      Script: {instanceID: 1760}
     - Class: 114
-      Script: {instanceID: 2720}
+      Script: {instanceID: 1768}
     - Class: 114
-      Script: {instanceID: 3014}
+      Script: {instanceID: 2532}
     - Class: 114
-      Script: {instanceID: 3146}
+      Script: {instanceID: 2826}
     - Class: 114
-      Script: {instanceID: 3320}
+      Script: {instanceID: 2838}
     - Class: 114
-      Script: {instanceID: 3378}
+      Script: {instanceID: 2960}
     - Class: 114
-      Script: {instanceID: 4260}
+      Script: {instanceID: 3134}
     - Class: 114
-      Script: {instanceID: 4748}
+      Script: {instanceID: 3142}
     - Class: 114
-      Script: {instanceID: 6054}
+      Script: {instanceID: 3194}
     - Class: 114
-      Script: {instanceID: 6100}
+      Script: {instanceID: 3550}
     - Class: 114
-      Script: {instanceID: 6758}
+      Script: {instanceID: 4076}
     - Class: 114
-      Script: {instanceID: 6944}
+      Script: {instanceID: 4564}
     - Class: 114
-      Script: {instanceID: 7350}
+      Script: {instanceID: 4730}
     - Class: 114
-      Script: {instanceID: 8436}
+      Script: {instanceID: 5216}
     - Class: 114
-      Script: {instanceID: 9304}
+      Script: {instanceID: 5794}
     - Class: 114
-      Script: {instanceID: 9474}
+      Script: {instanceID: 5878}
+    - Class: 114
+      Script: {instanceID: 5926}
+    - Class: 114
+      Script: {instanceID: 6102}
+    - Class: 114
+      Script: {instanceID: 6586}
+    - Class: 114
+      Script: {instanceID: 6772}
+    - Class: 114
+      Script: {instanceID: 6964}
+    - Class: 114
+      Script: {instanceID: 7182}
+    - Class: 114
+      Script: {instanceID: 7970}
+    - Class: 114
+      Script: {instanceID: 8208}
+    - Class: 114
+      Script: {instanceID: 8380}
+    - Class: 114
+      Script: {instanceID: 9148}
+    - Class: 114
+      Script: {instanceID: 9320}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -184,6 +236,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
     - Class: 205
@@ -197,6 +251,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
     - Class: 1953259897
       Script: {instanceID: 0}
@@ -224,37 +280,41 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1956}
+      Script: {instanceID: 1768}
     - Class: 114
-      Script: {instanceID: 2100}
+      Script: {instanceID: 1912}
     - Class: 114
-      Script: {instanceID: 2644}
+      Script: {instanceID: 2456}
     - Class: 114
-      Script: {instanceID: 3146}
+      Script: {instanceID: 2960}
     - Class: 114
-      Script: {instanceID: 3378}
+      Script: {instanceID: 3142}
     - Class: 114
-      Script: {instanceID: 3734}
+      Script: {instanceID: 3194}
     - Class: 114
-      Script: {instanceID: 4896}
+      Script: {instanceID: 3550}
     - Class: 114
-      Script: {instanceID: 4914}
+      Script: {instanceID: 4712}
     - Class: 114
-      Script: {instanceID: 5222}
+      Script: {instanceID: 4732}
     - Class: 114
-      Script: {instanceID: 5842}
+      Script: {instanceID: 4982}
     - Class: 114
-      Script: {instanceID: 5970}
+      Script: {instanceID: 5040}
     - Class: 114
-      Script: {instanceID: 6054}
+      Script: {instanceID: 5664}
     - Class: 114
-      Script: {instanceID: 6758}
+      Script: {instanceID: 5794}
     - Class: 114
-      Script: {instanceID: 6944}
+      Script: {instanceID: 5878}
     - Class: 114
-      Script: {instanceID: 7350}
+      Script: {instanceID: 6586}
     - Class: 114
-      Script: {instanceID: 38360}
+      Script: {instanceID: 6772}
+    - Class: 114
+      Script: {instanceID: 6964}
+    - Class: 114
+      Script: {instanceID: 7182}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -290,6 +350,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UIElements
     className: PanelRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 518c23d4eb2794e4ed89cbf97bf1ea32
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyMovement
   - hash:
       serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
@@ -400,10 +466,16 @@ ScriptsOnlyBuild:
     className: UnityOnBecameVisibleMessageListener
   - hash:
       serializedVersion: 2
-      Hash: b945eea340ed024e3417eefb7d360893
+      Hash: bfd061724ca8020b21a433ec04176ed2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: 6ae8a041184719b8610e4c3785348073
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Barco
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -452,6 +524,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.Advertisements.dll
     namespaceName: UnityEngine.Advertisements
     className: Placeholder
+  - hash:
+      serializedVersion: 2
+      Hash: 2a19c8944b861d2188e5643130681199
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SliderSensibilidade
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -694,6 +772,12 @@ ScriptsOnlyBuild:
     className: RectMask2D
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Crus
+  - hash:
+      serializedVersion: 2
       Hash: 87ad3705a58f19c47136728d4a6e9c47
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -718,7 +802,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: a46648e279e5ac060600c98be38a3085
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScriptMenus
@@ -734,6 +818,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCancelMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScriptRestart
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -764,6 +854,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: c8c672fee8a258266e51b55a210b8083
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshLink
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -838,6 +934,12 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 7299a528424874bcf6b5736b5305ac37
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifierVolume
+  - hash:
+      serializedVersion: 2
       Hash: 6e40e9ef2e1020b2711e3e64ed550cee
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -854,6 +956,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UIElements
     className: PanelEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 8d4458b476a9a4dd8df843a849fcfffa
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshSurface
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -916,6 +1024,12 @@ ScriptsOnlyBuild:
     className: UnityUtil
   - hash:
       serializedVersion: 2
+      Hash: 478328b24fe01dd3ba1f6622f71bb86b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Crons
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -944,6 +1058,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 2b19be13f00df62e6d4d4f5539bcad51
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifier
   - hash:
       serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
@@ -1000,16 +1120,16 @@ ScriptsOnlyBuild:
     className: ApplicationQuit
   - hash:
       serializedVersion: 2
+      Hash: f509537fa292df76b9d0b4106930bd76
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BLINK
+    className: AnimationDemo
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionExitMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PauseMenu
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -1040,6 +1160,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerDownMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: ff98c796815eb391003097195a3fb517
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Finish
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1078,16 +1204,22 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 03661955cb4daf67e0d9be439b5cb76c
+      Hash: a0dbf19367c9bf2e33e7daa1f0e15b31
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Cron
+    className: alvo
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnMoveMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 3c88f2a578e381dd1245006eeca9e73c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: scriptAgua
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -1204,12 +1336,12 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 29aa2c8ffe7fa8fd441dcbb85bf0e567
+      Hash: 11ac58dd98bf363d86b982b8e91f2e7e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: SliderSensibilidade
+    className: Top5
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu/MainMenu.unity
   - Assets/Scenes/Main/MainLevel.unity
-  playerPath: D:/Unity/Lenda-Insular/Lenda Insular.exe
+  playerPath: E:/lixo/Lenda Insular.exe

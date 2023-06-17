@@ -28,4 +28,6 @@ public class InGameUI : MonoBehaviour
     public void CrossHair(bool show) => crosshair.SetActive(show);
     public void PauseMenu(bool show)=> pauseMenu.SetActive(show);
     public void PickItem(bool show) => pickItem.SetActive(show);
+
+
 }

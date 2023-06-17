@@ -6,25 +6,26 @@ using UnityEngine.SceneManagement;
 public class Finish : MonoBehaviour
 {
     public Crons cron;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject player;
 
-    // Update is called once per frame
-    void Update()
+    public void Start()
     {
-        
-    }
 
+    }
     private void termina()
     {
         SceneManager.LoadScene("MainMenu");
+
         cron.addTime();
+        cron.SaveTime();
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        termina();
+        if (collision.gameObject == player)
+        {
+            termina();
+        }
     }
 }
+

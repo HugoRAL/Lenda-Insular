@@ -56,17 +56,25 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Characters\Inimigo\EnemyMovement.cs" />
     <Compile Include="Assets\Characters\objetos\scripts\chave.cs" />
     <Compile Include="Assets\Characters\ScriptsGeneral\PlayerController.cs" />
+    <Compile Include="Assets\Imports\obj\Barco\Barco.cs" />
     <Compile Include="Assets\Characters\ScriptsGeneral\CameraController.cs" />
     <Compile Include="Assets\ScriptsGeneral\SliderSensibilidade.cs" />
     <Compile Include="Assets\Inimigos\Scripts\Hit.cs" />
+    <Compile Include="Assets\ScriptsGeneral\Crus.cs" />
     <Compile Include="Assets\UI\Scripts\ScriptMenus.cs" />
+    <Compile Include="Assets\UI\Scripts\ScriptRestart.cs" />
     <Compile Include="Assets\UI\Scripts\InGameUI.cs" />
     <Compile Include="Assets\ScriptsGeneral\Crons.cs" />
+    <Compile Include="Assets\Imports\bear\Art\Animals\Stylized\Demo_Animals\DemoData\AnimationDemo.cs" />
+    <Compile Include="Assets\ScriptsGeneral\Finish.cs" />
+    <Compile Include="Assets\Imports\obj\alvo\alvo.cs" />
+    <Compile Include="Assets\Imports\obj\agua\scriptAgua.cs" />
     <Compile Include="Assets\Characters\ScriptsGeneral\Gun.cs" />
     <Compile Include="Assets\Characters\ScriptsGeneral\ItemPickup.cs" />
-    <Compile Include="Assets\Imports\obj\alvo\alvo.cs" />
+    <Compile Include="Assets\UI\Scripts\Top5.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -836,6 +844,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{D8E785E9-EE58-6A92-AE47-58A5DD7D39F9}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{A962933B-F428-263A-51B1-AAAABA847993}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
