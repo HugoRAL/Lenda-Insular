@@ -6,7 +6,7 @@ public class alvo : MonoBehaviour
 {
     public float amplitude = 0.5f; // Amplitude do movimento horizontal
     public float speed; // Velocidade do movimento horizontal
-    private Vector3 startPos; // Posição inicial do objeto
+    private Vector3 startPos; // Posiï¿½ï¿½o inicial do objeto
 
     public GameObject m1;
     public GameObject m2;
@@ -14,7 +14,7 @@ public class alvo : MonoBehaviour
 
     private void Start()
     {
-        startPos = transform.position; // Armazena a posição inicial do objeto
+        startPos = transform.position; // Armazena a posiï¿½ï¿½o inicial do objeto
 
         // Adiciona um Collider Box ao objeto
         BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
@@ -26,10 +26,10 @@ public class alvo : MonoBehaviour
 
     private void Update()
     {
-        // Calcula a posição horizontal com base no tempo
+        // Calcula a posiï¿½ï¿½o horizontal com base no tempo
         float newX = startPos.x + Mathf.Sin(Time.time * speed) * amplitude;
 
-        // Atualiza a posição do objeto
+        // Atualiza a posiï¿½ï¿½o do objeto
         transform.position = new Vector3(newX, transform.position.y, transform.position.z);
     }
 
