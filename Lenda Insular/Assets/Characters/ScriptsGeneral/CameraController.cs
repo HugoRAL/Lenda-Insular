@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class CameraController : MonoBehaviour
 {
     public GameObject player; // Objeto jogador
-    private float currentRotationX = 0f; // Rotação vertical atual da câmera
+    private float currentRotationX = 0f; // Rotaï¿½ï¿½o vertical atual da cï¿½mera
 
 
 
@@ -26,16 +26,18 @@ public class CameraController : MonoBehaviour
 
 
     public void SetRotacao()
-    {
-        // Rotação do objeto jogador com o movimento do mouse
-        float mouseX = Input.GetAxis("Mouse X");
-        player.transform.Rotate(Vector3.up, mouseX);
+    {    
+    float sens = PlayerPrefs.GetFloat("Sensibilidade");
 
-        // Rotação vertical da câmera com o movimento do mouse
-        float mouseY = Input.GetAxis("Mouse Y");
-        currentRotationX += mouseY;
-        currentRotationX = Mathf.Clamp(currentRotationX, -15f, 15f);
-        transform.localEulerAngles = new Vector3(-currentRotationX, transform.localEulerAngles.y, 0f);
+    // RotaÃ§Ã£o do objeto jogador com o movimento do mouse
+    float mouseX = Input.GetAxis("Mouse X") * sens;
+    player.transform.Rotate(Vector3.up, mouseX);
+
+    // RotaÃ§Ã£o vertical da cÃ¢mera com o movimento do mouse
+    float mouseY = Input.GetAxis("Mouse Y") * sens;
+    currentRotationX += mouseY;
+    currentRotationX = Mathf.Clamp(currentRotationX, -15f, 15f);
+    transform.localEulerAngles = new Vector3(-currentRotationX, transform.localEulerAngles.y, 0f);
     }
 
     private void SetPosicao(Vector3 cameraPosition)=> transform.position = cameraPosition;
