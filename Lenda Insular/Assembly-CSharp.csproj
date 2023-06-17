@@ -59,13 +59,14 @@
     <Compile Include="Assets\Characters\objetos\scripts\chave.cs" />
     <Compile Include="Assets\Characters\ScriptsGeneral\PlayerController.cs" />
     <Compile Include="Assets\Characters\ScriptsGeneral\CameraController.cs" />
+    <Compile Include="Assets\ScriptsGeneral\SliderSensibilidade.cs" />
     <Compile Include="Assets\Inimigos\Scripts\Hit.cs" />
-    <Compile Include="Assets\UI\Scripts\PauseMenu.cs" />
-    <Compile Include="Assets\ScriptsGeneral\Cron.cs" />
-    <Compile Include="Assets\Characters\ScriptsGeneral\Gun.cs" />
-    <Compile Include="Assets\Characters\ScriptsGeneral\ItemPickup.cs" />
     <Compile Include="Assets\UI\Scripts\ScriptMenus.cs" />
     <Compile Include="Assets\UI\Scripts\InGameUI.cs" />
+    <Compile Include="Assets\ScriptsGeneral\Crons.cs" />
+    <Compile Include="Assets\Characters\ScriptsGeneral\Gun.cs" />
+    <Compile Include="Assets\Characters\ScriptsGeneral\ItemPickup.cs" />
+    <Compile Include="Assets\Imports\obj\alvo\alvo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

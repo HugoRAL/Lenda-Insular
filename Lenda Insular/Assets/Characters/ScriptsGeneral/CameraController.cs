@@ -14,8 +14,9 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         SetPosicao(player.transform.position - player.transform.forward * 3 + Vector3.up * 2.5f);
-    }
 
+    }
+    
     public void FPS()
     {
         Vector3 newPosition = (player.transform.position - player.transform.forward * 1.5f + Vector3.up * 2.5f + player.transform.right * 1.5f);
