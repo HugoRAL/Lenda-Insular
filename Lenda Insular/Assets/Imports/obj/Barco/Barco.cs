@@ -14,7 +14,9 @@ public class Barco : MonoBehaviour
     private float duracaoMovimento = 5f;
 
     private void OnCollisionEnter(Collision collision)
-    {if (!naoFuncionar) {
+    {
+        if (!naoFuncionar)
+        {
             if (collision.gameObject == player)
             {
                 ui.SetActive(true);
@@ -28,8 +30,6 @@ public class Barco : MonoBehaviour
                 ui.SetActive(false);
             }
         }
-
-
     }
 
     private void Update()
@@ -38,31 +38,13 @@ public class Barco : MonoBehaviour
         {
             moverParaDestino = true;
         }
+        
         if (moverParaDestino)
         {
-            float tempoDecorrido = Time.time - tempoInicial;
-            float fracaoCompleta = tempoDecorrido / duracaoMovimento;
-
-            Vector3 parentPosition = transform.position;
-
-            // Define a posi��o do objeto player com um deslocamento vertical
-            Vector3 playerPosition = new Vector3(parentPosition.x, parentPosition.y + 1, parentPosition.z);
-            player.transform.position = playerPosition;
-
-            if (transform.position == posicaoDestino)
-            {
-                // Chegou ao destino
-                
-                moverParaDestino = false;
-                naoFuncionar = true;
-                player.transform.position = new Vector3(160.179993f, 6.28000021f, 106.309998f);
-                ui.SetActive(false);
-                Destroy(gameObject);
-                return;
-            }
-
-            // Interpola a posi��o atual at� a posi��o de destino
-            transform.position = Vector3.Lerp(transform.position, posicaoDestino, fracaoCompleta);
+            player.transform.position = new Vector3(161.003479f, 4.99908447f, 112.270126f); 
+            moverParaDestino = false;
+            ui.SetActive(false);
         }
     }
 }
+

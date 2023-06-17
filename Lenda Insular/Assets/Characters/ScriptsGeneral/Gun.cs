@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using static PlayerController;
+using UnityEngine.Audio;
 
 public class Gun : MonoBehaviour
 {
@@ -14,9 +15,8 @@ public class Gun : MonoBehaviour
     private float bulletSpeed = 5000;
     public GameObject jogador;
     public GameObject camera;
+    public AudioSource sound;
 
-    [SerializeField]
-    private GameObject hitText;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,38 +27,41 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sound.enabled = true;
         if(Input.GetMouseButtonDown(0))
         {
             if (Input.GetMouseButtonDown(0))
             {
                 DispararAMirar(transform.rotation);
+                
             }
             else
             {
+                
                 Shoot(transform.rotation);
             }
-            
+            sound.Play();
            
         }
     }
 
     public void Shoot(Quaternion _rotacao)
     {
-        GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, _rotacao);// Instancia o objeto bala na posiÁ„o do ponto de criaÁ„o da bala e com a rotaÁ„o passada como par‚metro
+        GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, _rotacao);// Instancia o objeto bala na posi√ß√£o do ponto de cria√ß√£o da bala e com a rota√ß√£o passada como par√¢metro
 
 
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         bulletRb.useGravity = false;
 
-        bulletRb.AddForce(transform.right * -1 * bulletSpeed);// Adiciona forÁa ao Rigidbody do clone da bala na direÁ„o do eixo X negativo (para tr·s)
+        bulletRb.AddForce(transform.right * -1 * bulletSpeed);// Adiciona for√ßa ao Rigidbody do clone da bala na dire√ß√£o do eixo X negativo (para tr√°s)
         bullet.transform.Rotate(0f, -90f, 0f); // rotaciona a bala para a frente
 
 
         bullet.transform.localScale = new Vector3(1,1,1);
-        // bullet.transform.LookAt(bulletPoint.transform.position); // ajusta a rotaÁ„o do clone da bala
+        // bullet.transform.LookAt(bulletPoint.transform.position); // ajusta a rota√ß√£o do clone da bala
 
-        BoxCollider boxCollider = bullet.AddComponent<BoxCollider>(); // Adiciona o BoxCollider ‡ bala (bullet)
-        Destroy(bullet, 2);// Destroi o clone da bala apÛs 2 segundos
+        BoxCollider boxCollider = bullet.AddComponent<BoxCollider>(); // Adiciona o BoxCollider √† bala (bullet)
+        Destroy(bullet, 2);// Destroi o clone da bala ap√≥s 2 segundos
     }
 
     private void DispararAMirar(Quaternion _rotacao)
@@ -81,7 +84,7 @@ public class Gun : MonoBehaviour
 
             bullet.transform.localScale = Vector3.one;
             bullet.transform.rotation = Quaternion.LookRotation(direction);
-            BoxCollider boxCollider = bullet.AddComponent<BoxCollider>(); // Adiciona o BoxCollider ‡ bala (bullet)
+            BoxCollider boxCollider = bullet.AddComponent<BoxCollider>(); // Adiciona o BoxCollider √† bala (bullet)
 
             Destroy(bullet, 2f);
         }

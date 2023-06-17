@@ -15,18 +15,16 @@ ScriptsOnlyBuild:
     - ScriptMenus
     - ScriptRestart
     - SliderSensibilidade
+    - SoundGeral
     - alvo
     - chave
     - scriptAgua
     NavMeshComponents.dll:
     - UnityEngine.AI.NavMeshSurface
-    NavMeshComponentsEditor.dll:
-    - UnityEditor.AI.NavMeshAssetManager
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -36,7 +34,6 @@ ScriptsOnlyBuild:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
-    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -45,10 +42,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -61,8 +56,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
-    - UnityEngine.UI.LayoutElement
-    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Slider
   serializedClasses:
     Unity.TextMeshPro:
@@ -75,11 +68,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_GlyphAdjustmentRecord
     - TMPro.TMP_GlyphPairAdjustmentRecord
     - TMPro.TMP_GlyphValueRecord
-    - TMPro.TMP_InputField/OnChangeEvent
-    - TMPro.TMP_InputField/SelectionEvent
-    - TMPro.TMP_InputField/SubmitEvent
-    - TMPro.TMP_InputField/TextSelectionEvent
-    - TMPro.TMP_InputField/TouchScreenKeyboardEvent
     - TMPro.TMP_Sprite
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
@@ -169,59 +157,61 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1760}
+      Script: {instanceID: 1646}
     - Class: 114
-      Script: {instanceID: 1768}
+      Script: {instanceID: 1654}
     - Class: 114
-      Script: {instanceID: 2532}
+      Script: {instanceID: 2418}
     - Class: 114
-      Script: {instanceID: 2826}
+      Script: {instanceID: 2712}
     - Class: 114
-      Script: {instanceID: 2838}
+      Script: {instanceID: 2724}
     - Class: 114
-      Script: {instanceID: 2960}
+      Script: {instanceID: 2846}
     - Class: 114
-      Script: {instanceID: 3134}
+      Script: {instanceID: 3020}
     - Class: 114
-      Script: {instanceID: 3142}
+      Script: {instanceID: 3028}
     - Class: 114
-      Script: {instanceID: 3194}
+      Script: {instanceID: 3080}
     - Class: 114
-      Script: {instanceID: 3550}
+      Script: {instanceID: 3436}
     - Class: 114
-      Script: {instanceID: 4076}
+      Script: {instanceID: 3962}
     - Class: 114
-      Script: {instanceID: 4564}
+      Script: {instanceID: 4450}
     - Class: 114
-      Script: {instanceID: 4730}
+      Script: {instanceID: 4616}
     - Class: 114
-      Script: {instanceID: 5216}
+      Script: {instanceID: 5102}
     - Class: 114
-      Script: {instanceID: 5794}
+      Script: {instanceID: 5682}
     - Class: 114
-      Script: {instanceID: 5878}
+      Script: {instanceID: 5766}
     - Class: 114
-      Script: {instanceID: 5926}
+      Script: {instanceID: 5816}
     - Class: 114
-      Script: {instanceID: 6102}
+      Script: {instanceID: 5994}
     - Class: 114
-      Script: {instanceID: 6586}
+      Script: {instanceID: 6480}
     - Class: 114
-      Script: {instanceID: 6772}
+      Script: {instanceID: 6666}
     - Class: 114
-      Script: {instanceID: 6964}
+      Script: {instanceID: 6858}
     - Class: 114
-      Script: {instanceID: 7182}
+      Script: {instanceID: 7076}
     - Class: 114
-      Script: {instanceID: 7970}
+      Script: {instanceID: 7864}
     - Class: 114
-      Script: {instanceID: 8208}
+      Script: {instanceID: 8102}
     - Class: 114
-      Script: {instanceID: 8380}
+      Script: {instanceID: 8274}
     - Class: 114
-      Script: {instanceID: 9148}
+      Script: {instanceID: 8322}
     - Class: 114
-      Script: {instanceID: 9320}
+      Script: {instanceID: 9044}
+    - Class: 114
+      Script: {instanceID: 9216}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -280,41 +270,37 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1768}
+      Script: {instanceID: 1654}
     - Class: 114
-      Script: {instanceID: 1912}
+      Script: {instanceID: 2342}
     - Class: 114
-      Script: {instanceID: 2456}
+      Script: {instanceID: 2846}
     - Class: 114
-      Script: {instanceID: 2960}
+      Script: {instanceID: 3028}
     - Class: 114
-      Script: {instanceID: 3142}
+      Script: {instanceID: 3080}
     - Class: 114
-      Script: {instanceID: 3194}
+      Script: {instanceID: 3436}
     - Class: 114
-      Script: {instanceID: 3550}
+      Script: {instanceID: 4618}
     - Class: 114
-      Script: {instanceID: 4712}
+      Script: {instanceID: 4868}
     - Class: 114
-      Script: {instanceID: 4732}
+      Script: {instanceID: 4926}
     - Class: 114
-      Script: {instanceID: 4982}
+      Script: {instanceID: 5682}
     - Class: 114
-      Script: {instanceID: 5040}
+      Script: {instanceID: 5766}
     - Class: 114
-      Script: {instanceID: 5664}
+      Script: {instanceID: 6480}
     - Class: 114
-      Script: {instanceID: 5794}
+      Script: {instanceID: 6666}
     - Class: 114
-      Script: {instanceID: 5878}
+      Script: {instanceID: 6858}
     - Class: 114
-      Script: {instanceID: 6586}
+      Script: {instanceID: 7076}
     - Class: 114
-      Script: {instanceID: 6772}
-    - Class: 114
-      Script: {instanceID: 6964}
-    - Class: 114
-      Script: {instanceID: 7182}
+      Script: {instanceID: 8322}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -952,6 +938,12 @@ ScriptsOnlyBuild:
     className: UnityOnBecameInvisibleMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 11ac58dd98bf363d86b982b8e91f2e7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Top5
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UIElements
@@ -1162,7 +1154,7 @@ ScriptsOnlyBuild:
     className: UnityOnPointerDownMessageListener
   - hash:
       serializedVersion: 2
-      Hash: ff98c796815eb391003097195a3fb517
+      Hash: 0790da5cc23c9d986c7d69be3832bc77
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Finish
@@ -1220,6 +1212,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: scriptAgua
+  - hash:
+      serializedVersion: 2
+      Hash: 2a19c8944b861d2188e5643130681199
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoundGeral
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -1294,7 +1292,7 @@ ScriptsOnlyBuild:
     className: DataPrivacyButton
   - hash:
       serializedVersion: 2
-      Hash: e2225fddc334905f5b6f98e12df9de3d
+      Hash: b769d79d02cd80971767ec789d43fb69
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Gun
@@ -1334,14 +1332,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 11ac58dd98bf363d86b982b8e91f2e7e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Top5
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu/MainMenu.unity
   - Assets/Scenes/Main/MainLevel.unity
-  playerPath: E:/lixo/Lenda Insular.exe
+  playerPath: C:/Users/berna/Desktop/beta_prototype_Group18/Lenda Insular.exe

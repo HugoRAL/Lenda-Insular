@@ -29,7 +29,7 @@ public class Crus : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void UnlockCursor()
+    public void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

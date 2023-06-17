@@ -7,6 +7,7 @@ public class Finish : MonoBehaviour
 {
     public Crons cron;
     public GameObject player;
+    public Crus unl;
 
     public void Start()
     {
@@ -15,7 +16,7 @@ public class Finish : MonoBehaviour
     private void termina()
     {
         SceneManager.LoadScene("MainMenu");
-
+        unl.UnlockCursor();
         cron.addTime();
         cron.SaveTime();
     }
